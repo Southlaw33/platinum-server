@@ -1,15 +1,12 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { serve } from "@hono/node-server";
+import { Hono } from "hono";
 
-const app = new Hono()
+const allRoutes = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+allRoutes.get("/", (c) => {
+  return c.json({ message: "Hello, World!" });
+});
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+serve(allRoutes, ({ port }) => {
+  console.log(`Server is running on port ${port}`);
+});
