@@ -10,7 +10,7 @@ allRoutes.use(
     origin: webClientUrl,
     allowMethods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS", "PUT"],
     allowHeaders: ["Content-Type", "Authorization"],
-    exposeHeaders: ["Context-Length"],
+    exposeHeaders: ["Content-Length"],
     maxAge: 600,
   })
 );
